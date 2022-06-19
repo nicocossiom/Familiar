@@ -14,6 +14,18 @@ export type RootStackParamList = {
 	HomeScreen: undefined;
 };
 
+const commonStartingScreenOption = {
+	headerBackTitle: "Back",
+	headerBackTitleStyle: {
+		color: "white",
+	},
+	headerTitle: "",
+	headerStyle: {
+		backgroundColor: "#2066d3",
+		shadowColor: "transparent",
+	},
+};
+
 export default function App() {
 	const Stack = createStackNavigator<RootStackParamList>();
 	return (
@@ -30,16 +42,12 @@ export default function App() {
 					<Stack.Screen
 						name="LoginScreen"
 						component={LoginScreen}
-						options={{
-							headerShown: false,
-						}}
+						options={commonStartingScreenOption}
 					/>
 					<Stack.Screen
 						name="RegisterScreen"
 						component={RegisterScreen}
-						options={{
-							headerShown: false,
-						}}
+						options={commonStartingScreenOption}
 					/>
 					<Stack.Screen
 						name="HomeScreen"

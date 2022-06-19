@@ -1,5 +1,12 @@
 // create a component with two input fields and a button
-import { Text, View, TextInput, KeyboardAvoidingView, Keyboard } from "react-native";
+import {
+	Text,
+	View,
+	TextInput,
+	Linking,
+	KeyboardAvoidingView,
+	ScrollView,
+} from "react-native";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import { useState } from "react";
 import * as React from "react";
@@ -7,7 +14,7 @@ import InitialScreenButton from "../components/InitialScreenButton";
 import { styles } from "../styles/LoginRegisterStyles";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../App";
-import KeyboardHideableView from "../components/KeyboardHideableView";
+import { Header } from "react-navigation-stack";
 
 type UserSubmitForm = {
 	fullname: string;
@@ -28,9 +35,20 @@ type Props = { navigation: RegisterScreenNavigationProp };
 export default function RegisterScreen({ navigation }: Props) {
 	const [isSelected, setSelection] = useState(false);
 	return (
-		<KeyboardHideableView>
-			<View style={styles.container}>
+		<ScrollView
+			scrollEnabled={false}
+			keyboardShouldPersistTaps="never"
+			contentContainerStyle={styles.container}
+		>
+			<KeyboardAvoidingView
+				style={styles.container}
+				behavior="position"
+				enabled
+				contentContainerStyle={styles.container}
+				keyboardVerticalOffset={-100} //</ScrollView> adjust the value here if you need more padding
+			>
 				<Text style={styles.title}>Register</Text>
+
 				<TextInput
 					style={styles.inputInfoBox}
 					autoCorrect={false}
@@ -71,7 +89,20 @@ export default function RegisterScreen({ navigation }: Props) {
 					size={25}
 					fillColor="#2066d3"
 					unfillColor="#FFFFFF"
-					text="I accept the terms and conditions"
+					textComponent={
+						<Text
+							style={{
+								color: "white",
+								marginLeft: 10,
+								textDecorationLine: "underline",
+							}}
+							onPress={() =>
+								Linking.openURL("https://www.magloft.com/publications/6474/terms ")
+							}
+						>
+							I accept the terms and conditions ↗️
+						</Text>
+					}
 					textStyle={{ color: "white" }}
 					iconStyle={{ borderColor: "white" }}
 					onPress={(isChecked: boolean) => {}}
@@ -89,7 +120,7 @@ export default function RegisterScreen({ navigation }: Props) {
 						})
 					}
 				/>
-			</View>
-		</KeyboardHideableView>
+			</KeyboardAvoidingView>
+		</ScrollView>
 	);
 }
