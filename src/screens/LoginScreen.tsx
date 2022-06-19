@@ -39,8 +39,6 @@ export default function LoginScren({ navigation }: Props) {
 					autoCapitalize="none"
 					placeholder="Password"
 					placeholderTextColor={"#CDBBBB"}
-					caretHidden={true}
-					onSubmitEditing={Keyboard.dismiss}
 				/>
 
 				<InitialScreenButton

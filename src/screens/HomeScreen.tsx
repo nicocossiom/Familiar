@@ -17,7 +17,7 @@ export default function HomeScreen({ navigation }: Props) {
 	);
 }
 
-function BottomNavBar(){
+function BottomNavBar() {
 	return (
 		<Tab.Navigator>
 			<Tab.Screen name="Home" component={HomeScreen} />
