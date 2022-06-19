@@ -1,6 +1,6 @@
 # Familiar 🏠
 
-Familiar is a cross-platform application aimed at bringing friends and family closer by providing a central hub to connect and share with them in a more private and personal way.
+Familiar is a cross-platform application aimed at bringing friends and family closer by providing a central hub to connect and share in a more private and personal way.
 
 > This project is currently in development and is not yet ready for use.
 

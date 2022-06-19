@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
 		lineHeight: 21,
 		fontWeight: "bold",
 		letterSpacing: 0.25,
+		alignSelf: "auto",
 		color: "#2066d3",
 	},
 });
